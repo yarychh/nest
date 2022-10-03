@@ -18,6 +18,17 @@ export class PairsService {
     return (await this.pairModel.find()).filter((pair) => pair.userId === id);
   }
 
+  public async getUsersCategories(id: string): Promise<string[]> {
+    const usersCategories = [
+      ...new Set(
+        (await this.pairModel.find())
+          .filter((pair) => pair.userId === id && pair.category.length)
+          .map((pair) => pair.category),
+      ),
+    ];
+    return usersCategories;
+  }
+
   public async create(pairDto: CreatePassPairDto): Promise<Pair> {
     const newProduct = new this.pairModel(pairDto);
     return newProduct.save();

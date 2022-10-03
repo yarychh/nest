@@ -4,5 +4,6 @@ export class UpdatePassPairDto {
   readonly login: string;
   readonly password: string;
   readonly source: string;
+  readonly categoty: string;
   readonly shown: boolean;
 }

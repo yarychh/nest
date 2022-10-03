@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PairsController } from './pairs.controller';
 import { PairsService } from './pairs.service';
 import { Pair, PairScema } from './schemas/pair.schema';
+import { CategoriesController } from './categories.controller';
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import { Pair, PairScema } from './schemas/pair.schema';
       { name: Pair.name, schema: PairScema, collection: 'pairs' },
     ]),
   ],
-  controllers: [PairsController],
+  controllers: [PairsController, CategoriesController],
   providers: [PairsService],
 })
 export class PairsModule {}

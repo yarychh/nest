@@ -20,6 +20,9 @@ export class Pair {
   source: string;
 
   @Prop()
+  category: string;
+
+  @Prop()
   shown: boolean;
 }
 
